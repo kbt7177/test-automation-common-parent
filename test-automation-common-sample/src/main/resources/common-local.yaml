@@ -1,0 +1,19 @@
+#Sample file
+
+database:
+  sample_database:
+    jdbc_url: jdbc:sqlserver://SNTPSSQLTEST\TEST;databaseName=adisdb-test;encrypt=true;trustServerCertificate=true;
+    username: usr_viewuser
+    password: usr_viewuser
+
+api:
+  sample_api:
+    base_url: http://sntpsprocesstest.springernature.com:8080/api
+
+api_user:
+  trial_user:
+    user: kbt7177
+
+ui:
+  odyssey_backend_url:
+    base_url: http://sntpseditorialtest.springernature.com/adis2000www/

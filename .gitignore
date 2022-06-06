@@ -1,0 +1,17 @@
+.DS_Store
+.idea/
+.git
+Test-automation-common-parent.iml
+target/
+*/target/*
+testng.xml
+test-automation-common-api/target/
+test-automation-common-core/target/
+test-automation-common-database/target/
+test-automation-common-sample/target/
+test-automation-common-ui/target/
+test-automation-common-utilities/target/
+*/logs/*
+/logs/
+logs/
+logs/*

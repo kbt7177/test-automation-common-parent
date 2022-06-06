@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.springer.quality</groupId>
+    <artifactId>test-automation-common-sample</artifactId>
+
+    <parent>
+        <artifactId>test-automation-common-parent</artifactId>
+        <groupId>com.springer.quality</groupId>
+        <version>1.0.1</version>
+    </parent>
+
+    <properties>
+        <test-automation-common-version>1.0.1</test-automation-common-version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.springer.quality</groupId>
+            <artifactId>test-automation-common-database</artifactId>
+            <version>${test-automation-common-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.springer.quality</groupId>
+            <artifactId>test-automation-common-ui</artifactId>
+            <version>${test-automation-common-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.springer.quality</groupId>
+            <artifactId>test-automation-common-api</artifactId>
+            <version>${test-automation-common-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.springer.quality</groupId>
+            <artifactId>test-automation-common-utilities</artifactId>
+            <version>${test-automation-common-version}</version>
+        </dependency>
+
+    </dependencies>
+
+</project>
