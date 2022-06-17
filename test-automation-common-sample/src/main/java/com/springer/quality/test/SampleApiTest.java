@@ -16,12 +16,6 @@ public class SampleApiTest {
 
     private static final MyApiUserConfig user = ApiUserItem.instance().getConfig(MyApiUserConfig.class);
 
-    @BeforeSuite
-    public void setContext(){
-        log.info("Starting Test");
-        log.debug("Debug");
-        log.trace("Trace");
-    }
 
     @Test
     public void sampleApiTest() {
