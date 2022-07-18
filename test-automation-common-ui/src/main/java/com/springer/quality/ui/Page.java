@@ -62,4 +62,12 @@ public abstract class Page {
         return value;
     }
 
+    public void close() {
+        driver.close();
+        driver.switchTo().defaultContent();
+    }
+
+    public void quite() {
+        driver.quit();
+    }
 }

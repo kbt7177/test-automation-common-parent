@@ -30,6 +30,7 @@ public final class ReadExcel {
     private String resourcesFolder = "/src/main/resources/";
     private String filePath = null;
     private String excelFilePath = null;
+    private Map<Integer, Integer> columnCountInSheet = new HashMap<>();
 
     public static ReadExcel getExcelData(String excelFilePath) throws IOException {
         if (!excelFileObject.containsKey(excelFilePath)) {
@@ -49,14 +50,30 @@ public final class ReadExcel {
         inputStream.close();
     }
 
+    private int getMaxColumnCount(Workbook workbook, int sheetNumber) {
+        Sheet sheet = workbook.getSheetAt(sheetNumber);
+        int i = 0;
+        int maxCount = 0;
+        while (i <= sheet.getLastRowNum()) {
+            if (sheet.getRow(i) != null) {
+                if (maxCount < sheet.getRow(i).getLastCellNum()) {
+                    maxCount = sheet.getRow(i).getLastCellNum();
+                }
+            }
+            i++;
+        }
+        return maxCount;
+    }
+
     private ArrayList<ArrayList<ArrayList<Object>>> getAllData() {
         excelWorkbookData = new ArrayList<ArrayList<ArrayList<Object>>>();
         for (int i = 0; i < totalSheets; i++) {
+            columnCountInSheet.put(i, 0);
             excelSheetData = new ArrayList<ArrayList<Object>>();
             Sheet sheet = workbook.getSheetAt(i);
             currentSheet = i;
             totalRowsInSheet = sheet.getLastRowNum() + 1;
-            totalColumnsInRow = sheet.getRow(0).getLastCellNum();
+            totalColumnsInRow = getMaxColumnCount(workbook, i);
             for (int j = 0; j < totalRowsInSheet; j++) {
                 Row row = sheet.getRow(j);
                 ArrayList<Object> columnData = new ArrayList<>();
@@ -87,6 +104,7 @@ public final class ReadExcel {
         totalColumnsInRow = excelSheetData.get(0).size();
         return excelWorkbookData;
     }
+
 
     @Override
     protected void finalize() throws Throwable {
@@ -156,7 +174,9 @@ public final class ReadExcel {
             verifyRow(rowNum);
             verifyColumn(columnNum);
             log.debug("Reading data from excel : " + excelFilePath + ", sheetName : " + workbook.getSheetName(currentSheet) + ", rowNumber : " + rowNum + ", columnNumber : " + columnNum);
-            return String.valueOf(excelSheetData.get(rowNum - 1).get(columnNum - 1));
+            String value = String.valueOf(excelSheetData.get(rowNum - 1).get(columnNum - 1));
+            log.debug("Returned Value = " + value);
+            return value;
         } catch (ReadExcelException e) {
             throw e;
         }
