@@ -48,11 +48,11 @@ public class OdysseyHomePage extends Page {
             KeyboardActions keyboard = new KeyboardActions();
             keyboard.type("kbt7177");
             robot.delay(500);
-            keyboard.type("\t");
+            keyboard.tab();
             robot.delay(500);
             keyboard.type("Kau@Kau@1234");
             robot.delay(1000);
-            keyboard.type("\n");
+            keyboard.enter();
             robot.delay(1000);
             verifyLogin = true;
         }
