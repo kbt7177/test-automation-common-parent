@@ -17,7 +17,6 @@ public class OdysseyUiTest extends UiTestBase {
 
     public WebDriver driver = getWebDriver("chrome", "");
 
-
     @Override
     protected UiConfig getConfig() {
         return UiItem.instance().getConfig(MyUiConfig.class).getOdysseyBackendUrl();
@@ -29,7 +28,6 @@ public class OdysseyUiTest extends UiTestBase {
             OdysseyHomePage odysseyHomePage = Page.create(driver, OdysseyHomePage.class);
             Assert.assertEquals(odysseyHomePage.getHomePageTitle(), "Odyssey");
             odysseyHomePage.clickOnContentAcqLink();
-
             log.info("Test case Pass Successfully");
             Thread.sleep(5000);
             odysseyHomePage.quite();
@@ -38,6 +36,4 @@ public class OdysseyUiTest extends UiTestBase {
             Assert.assertTrue(false, "Error with Message : " + e.getMessage());
         }
     }
-
-
 }

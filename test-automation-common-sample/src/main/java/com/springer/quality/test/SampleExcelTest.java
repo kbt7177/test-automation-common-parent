@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 @Slf4j
 public class SampleExcelTest {
 
-    @Test
+    @Test(priority = 0)
     public void sampleExcelReadTest() {
         try {
             ReadExcel testObj = ReadExcel.getExcelData(Property.get("testExcelPath"));

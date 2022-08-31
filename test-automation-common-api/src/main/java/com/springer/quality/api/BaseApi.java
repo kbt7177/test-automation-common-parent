@@ -12,8 +12,6 @@ import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 
-import java.util.UUID;
-
 public abstract class BaseApi {
     private static final String USER_HEADER_KEY = null;
     private static final String CUSTOMER_HEADER_KEY = null;
